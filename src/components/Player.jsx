@@ -6,7 +6,7 @@ function Player() {
   const song = useSelector((state) => state.song);
 
   return (
-    <div className="container-fluid pt-1">
+    <div className="container-fluid pt-1 fixed-bottom">
       <div className="row">
         <div className="col-lg-10 offset-lg-2">
           <div className="d-flex justify-content-between align-items-center bg-dark text-white py-2 px-4">
