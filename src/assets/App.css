@@ -176,3 +176,25 @@ ul {
   width: 200px;
 }
 
+.bg-dark {
+  background-color: #282828;
+}
+
+.playerControls img {
+  width: 60px;
+  height: 60px;
+}
+
+.playerControls p {
+  color: white;
+  margin: 0;
+}
+
+.progress {
+  height: 5px;
+  background-color: #414141;
+}
+
+.progress-bar {
+  background-color: #f0f0f0;
+}

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -6,39 +7,43 @@ function Player() {
 
   return (
     <div className="container-fluid pt-1">
-      <div className="col-lg-10 offset-lg-1 w-100">
-        <div className=" d-flex justify-content-between px-3 align-items-center col-6 col-md-4 w-100 bg-dark ">
-          <div className="ps-5 ms-5 pt-4  d-flex align-items-center">
-            <img
-              className=" text-white py-4 w-50"
-              src={song.albumCover}
-              alt="album cover"
-            />
-            <p className="text-white ps-5">
-              {song.title}
-              <br />
-              {song.artist}
-            </p>
+      <div className="row">
+        <div className="col-lg-10 offset-lg-2">
+          <div className="d-flex justify-content-between align-items-center bg-dark text-white py-2 px-4">
+            {/* Image and Song Info */}
+            <div className="d-flex align-items-center">
+              <img
+                className="me-4"
+                src={song.albumCover}
+                alt="album cover"
+                style={{ width: '60px', height: '60px' }}
+              />
+              <div>
+                <p className="mb-0">{song.title}</p>
+                <p className="mb-0">{song.artist}</p>
+              </div>
+            </div>
+            {/* Controls */}
+            <div className="d-flex align-items-center">
+              <a href="a" className="text-white mx-2">
+                <i className="bi bi-shuffle"></i>
+              </a>
+              <a href="a" className="text-white mx-2">
+                <i className="bi bi-skip-backward-fill"></i>
+              </a>
+              <a href="a" className="text-white mx-2">
+                <i className="bi bi-play-fill fs-3"></i>
+              </a>
+              <a href="a" className="text-white mx-2">
+                <i className="bi bi-skip-forward-fill"></i>
+              </a>
+              <a href="a" className="text-white mx-2">
+                <i className="bi bi-repeat"></i>
+              </a>
+            </div>
           </div>
-          <div className="d-flex align-items-center ms-5">
-            <a href="a">
-              <i className="bi bi-shuffle text-white mx-4"></i>
-            </a>
-            <a href="a">
-              <i className="bi bi-skip-backward-fill text-white mx-4"></i>
-            </a>
-            <a href="a">
-              <i className="bi bi-play-fill text-white fs-3 mx-4"></i>
-            </a>
-            <a href="a">
-              <i className="bi bi-skip-forward-fill text-white mx-4"></i>
-            </a>
-            <a href="a">
-              <i className="bi bi-repeat text-white mx-4"></i>
-            </a>
-          </div>
-          <div className="progress mt-3">
-            <div role="progressbar"></div>
+          <div className="progress mt-2">
+            <div className="progress-bar" role="progressbar" style={{ width: '50%' }}></div>
           </div>
         </div>
       </div>
