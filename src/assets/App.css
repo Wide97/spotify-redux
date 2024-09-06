@@ -178,6 +178,7 @@ ul {
 
 .bg-dark {
   background-color: #282828;
+  opacity: 70%;
 }
 
 .playerControls img {
@@ -193,6 +194,7 @@ ul {
 .progress {
   height: 5px;
   background-color: #414141;
+  opacity: 30%;
 }
 
 .progress-bar {
