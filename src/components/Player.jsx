@@ -9,19 +9,19 @@ function Player() {
             <div className="col-6 col-md-4 playerControls">
               <div className="d-flex align-items-center">
                 <a href="a">
-                  <i class="bi bi-shuffle text-white"></i>
+                  <i className="bi bi-shuffle text-white"></i>
                 </a>
                 <a href="a">
-                  <i class="bi bi-skip-backward-fill text-white"></i>
+                  <i className="bi bi-skip-backward-fill text-white"></i>
                 </a>
                 <a href="a">
-                  <i class="bi bi-play-fill text-white fs-3"></i>
+                  <i className="bi bi-play-fill text-white fs-3"></i>
                 </a>
                 <a href="a">
-                  <i class="bi bi-skip-forward-fill text-white"></i>
+                  <i className="bi bi-skip-forward-fill text-white"></i>
                 </a>
                 <a href="a">
-                  <i class="bi bi-repeat text-white"></i>
+                  <i className="bi bi-repeat text-white"></i>
                 </a>
               </div>
               <div className="progress mt-3">
