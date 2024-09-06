@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import AlbumCard from './AlbumCard';
 
-const albumCard = (singleSong) => (
-  <div className="col text-center" key={singleSong.id}>
-    <img className="img-fluid" src={singleSong.album.cover_medium} alt="track" />
-    <p>
-      Track: "{singleSong.title}"<br />
-      Artist: {singleSong.artist.name}
-    </p>
-  </div>
-);
-
-const fetchMusicSection = async (artistName, setData, querySelector) => {
+const fetchMusicSection = async (artistName, setData) => {
   try {
     let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artistName}`);
     if (response.ok) {
       let { data } = await response.json();
       setData(data.slice(0, 4));
     } else {
-      throw new Error('Error in fetching songs');
+      throw new Error('Errore nel recupero dei brani');
     }
   } catch (err) {
-    console.error('error', err);
+    console.error('errore', err);
   }
 };
 
@@ -30,9 +21,9 @@ function MainSection() {
   const [hipHopData, setHipHopData] = useState([]);
 
   useEffect(() => {
-    fetchMusicSection('queen', setRockData, '#rockSection');
-    fetchMusicSection('katyperry', setPopData, '#popSection');
-    fetchMusicSection('eminem', setHipHopData, '#hipHopSection');
+    fetchMusicSection('queen', setRockData);
+    fetchMusicSection('katyperry', setPopData);
+    fetchMusicSection('eminem', setHipHopData);
   }, []);
 
   return (
@@ -50,8 +41,10 @@ function MainSection() {
         <div className="col-10">
           <div id="rock">
             <h2>Rock Classics</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="rockSection">
-              {rockData.map(albumCard)}
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {rockData.map(song => (
+                <AlbumCard key={song.id} song={song} />
+              ))}
             </div>
           </div>
         </div>
@@ -60,8 +53,10 @@ function MainSection() {
         <div className="col-10">
           <div id="pop">
             <h2>Pop Culture</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="popSection">
-              {popData.map(albumCard)}
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {popData.map(song => (
+                <AlbumCard key={song.id} song={song} />
+              ))}
             </div>
           </div>
         </div>
@@ -70,8 +65,10 @@ function MainSection() {
         <div className="col-10">
           <div id="hiphop">
             <h2>#HipHop</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="hipHopSection">
-              {hipHopData.map(albumCard)}
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {hipHopData.map(song => (
+                <AlbumCard key={song.id} song={song} />
+              ))}
             </div>
           </div>
         </div>
